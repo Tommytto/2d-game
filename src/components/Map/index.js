@@ -1,4 +1,4 @@
-import {getCanvasSize} from '../../helpers/canvas';
+    import {getCanvasSize} from '../../helpers/canvas';
 import Component from '../Base';
 import {STATE} from '../../consts/state';
 import {ELEMENT} from '../../consts/element';
@@ -21,6 +21,11 @@ export default class Map extends Component {
                 {type: ELEMENT.AIR},
                 {type: ELEMENT.AIR},
                 {type: ELEMENT.AIR},
+                {type: ELEMENT.AIR},
+                {type: ELEMENT.AIR},
+                {type: ELEMENT.AIR},
+                {type: ELEMENT.AIR},
+                {type: ELEMENT.AIR},
             ],
             [
                 {type: ELEMENT.AIR},
@@ -33,14 +38,8 @@ export default class Map extends Component {
                 {type: ELEMENT.AIR},
                 {type: ELEMENT.AIR},
                 {type: ELEMENT.AIR},
-            ],
-            [
                 {type: ELEMENT.AIR},
                 {type: ELEMENT.AIR},
-                {type: ELEMENT.AIR},
-                {type: ELEMENT.GROUND},
-                {type: ELEMENT.GROUND},
-                {type: ELEMENT.GROUND},
                 {type: ELEMENT.AIR},
                 {type: ELEMENT.AIR},
                 {type: ELEMENT.AIR},
@@ -49,7 +48,28 @@ export default class Map extends Component {
             [
                 {type: ELEMENT.AIR},
                 {type: ELEMENT.AIR},
+                {type: ELEMENT.AIR},
                 {type: ELEMENT.GROUND},
+                {type: ELEMENT.GROUND},
+                {type: ELEMENT.GROUND},
+                {type: ELEMENT.AIR},
+                {type: ELEMENT.AIR},
+                {type: ELEMENT.AIR},
+                {type: ELEMENT.AIR},
+                {type: ELEMENT.AIR},
+                {type: ELEMENT.AIR},
+                {type: ELEMENT.AIR},
+                {type: ELEMENT.AIR},
+                {type: ELEMENT.AIR},
+            ],
+            [
+                {type: ELEMENT.AIR},
+                {type: ELEMENT.AIR},
+                {type: ELEMENT.GROUND},
+                {type: ELEMENT.AIR},
+                {type: ELEMENT.AIR},
+                {type: ELEMENT.AIR},
+                {type: ELEMENT.AIR},
                 {type: ELEMENT.AIR},
                 {type: ELEMENT.AIR},
                 {type: ELEMENT.AIR},

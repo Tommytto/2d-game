@@ -3,9 +3,11 @@ import {ELEMENT} from '../consts/element';
 import {of} from 'rxjs';
 
 export default class Engine {
-    constructor({modules, ctx, config, store}) {
+    constructor({modules, ctx, config, store, coiner}) {
         this.modules = modules;
         this.config = config;
+        this.ctx = ctx;
+        this.coiner = coiner;
         this.store = store;
         this.modulesArr = Object.values(modules);
         const [canvasWidth, canvasHeight] = getCanvasSize(ctx);
@@ -15,13 +17,14 @@ export default class Engine {
         this.maxTop = canvasHeight - boundVertical;
         this.minTop = boundVertical;
         this.minLeft = bound;
-        const heroHeight = 50;
-        const heroWidth = 50;
+        const heroHeight = 100;
+        const heroWidth = 100;
+        this.counted = 0;
         this.onGround = false;
         this.heroState = {
             stateList: [],
-            x: bound,
-            y: bound,
+            x: bound - 100,
+            y: bound - 200,
             w: heroWidth,
             h: heroHeight,
             canvasOffset: {
@@ -29,12 +32,12 @@ export default class Engine {
                 y: 0,
             },
         };
-        this.dx = 10;
         this.jump = {
             size: 300,
             count: 0,
             interval: null,
         };
+        this.dx = 7;
         this.dy = this.jump.size / 30;
         this.falling = {
             interval: null,
@@ -64,11 +67,6 @@ export default class Engine {
     }
 
     bind() {
-        setInterval(() => {
-            console.log(this.map.getState(this.heroState).current);
-            console.log(this.map.getState(this.heroState).bottom);
-            console.log(this.heroState);
-        }, 2000);
         document.addEventListener('keydown', (e) => {
             switch (e.key) {
                 case 'ArrowUp':
@@ -229,6 +227,15 @@ export default class Engine {
         // const {x, y, w, h} = this.heroState;
         // const newStateList = this.modulesArr.map((modules) => modules.getState({x, y, w, h}));
         // this.heroState.stateList = newStateList;
+        const counted = this.coiner.getState(this.heroState);
+        if (counted) {
+            console.log(counted);
+            this.counted++;
+        }
+        console.log(this.counted);
+        this.ctx.font = '60px Arial';
+        this.ctx.fillStyle = 'black';
+        this.ctx.fillText(Number(this.counted), 30, 90);
         return this.heroState;
     }
 }

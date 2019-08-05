@@ -4,6 +4,7 @@ import Config from './services/Config';
 import {EventEmitter} from './services/EventEmitter';
 import Engine from './services/Engine';
 import Store from "./services/Store";
+import Coiner from "./components/Coiner";
 
 window.onload = function() {
     const canvas = document.querySelector('#canvas');
@@ -17,7 +18,8 @@ window.onload = function() {
     const touchChannel = new EventEmitter();
     const store = new Store();
     const config = new Config({ctx});
-    const engine = new Engine({store, modules: {}, ctx, config});
+    const coiner = new Coiner({ctx, store, config})
+    const engine = new Engine({store, modules: {}, ctx, config, coiner});
     const map = new Map({ctx, engine, store, config, touchChannel});
     engine.setMap(map);
     const hero = new Hero({ctx, config, touchChannel, store, engine});
@@ -27,6 +29,7 @@ window.onload = function() {
         clearCanvas();
         map.draw();
         hero.draw();
+        coiner.draw();
         requestAnimationFrame(loop);
     }
 
