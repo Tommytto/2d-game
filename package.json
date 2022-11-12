@@ -12,7 +12,7 @@
   "devDependencies": {
     "@work-environment/eslint-config": "1.0.2",
     "webpack": "^4.39.1",
-    "webpack-cli": "^3.3.6"
+    "webpack-cli": "^3.3.12"
   },
   "dependencies": {
     "rxjs": "^6.5.2"
